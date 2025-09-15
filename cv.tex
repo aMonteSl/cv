@@ -5,16 +5,21 @@
 \usepackage[utf8]{inputenc}   % Con XeLaTeX puedes omitirlo
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[margin=1.55cm]{geometry} % un poco más de área útil
+\usepackage[margin=1.2cm]{geometry} % márgenes más compactos
 \usepackage{parskip}
-\setlength{\parskip}{1.5pt}          % ligero pero legible
+\setlength{\parskip}{1pt}          % más compacto
 \usepackage{microtype}
-\linespread{0.965}                    % pelín menos de interlínea
+\linespread{0.93}                    % menos interlínea para compactar
+\usepackage{xcolor}
 \usepackage{hyperref}
-\hypersetup{colorlinks=false}
+% Mostrar enlaces en azul y permitir que se partan en varias líneas
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue, breaklinks=true}
 \urlstyle{same}
 \usepackage[none]{hyphenat}
 \sloppy % (opcional) da margen para evitar cortes agresivos
+
+% Forzar tamaño de fuente general más pequeño (equivalente a ~9pt)
+\AtBeginDocument{\fontsize{9}{11}\selectfont}
 
 
 % --- Estilos del CV ---
@@ -90,33 +95,31 @@
 	% --- Contacto ---
 	\Contact{%
 		Email: \href{mailto:adrian.adyra@gmail.com}{adrian.adyra@gmail.com} \enspace|\enspace
-		Tel: +34 637 682 361 \enspace|\enspace
+		Tel: \href{https://wa.me/34637682361}{+34 637 682 361} \enspace|\enspace
+		Permiso de conducir: Clase B \enspace|\enspace
 		LinkedIn: \href{https://linkedin.com/in/adrianmonteslinares}{linkedin.com/in/adrianmonteslinares} \enspace|\enspace
 		GitHub: \href{https://github.com/aMonteSl}{github.com/aMonteSl} \enspace|\enspace
+		Portfolio: \href{https://amontesl.github.io/}{amontesl.github.io} \enspace|\enspace
 		Madrid, ES
 	}
 	
 	% --- RESUMEN ---
 	\SectionTitle{Resumen}
-	
-	Estudiante de \textbf{Ingeniería Telemática} (URJC) con entusiasmo por iniciar mi carrera en \textbf{desarrollo de software} (\textbf{backend} y \textbf{frontend}). Busco \textbf{prácticas} para seguir creciendo técnicamente mientras aporto \textbf{valor} en \textbf{soluciones reales} y me comprometo con los objetivos del \textbf{equipo}.
-	
-	Mi proyecto más significativo es \textbf{Code\mbox{-}XR}, un plugin de \textbf{software libre} para \textbf{Visual Studio Code}. Me permitió consolidar \textbf{habilidades técnicas} y desarrollar \textbf{competencias transversales} como comunicación, difusión y autogestión.
-	
-	Intereses: \textbf{viajar} para conocer otras culturas y formas de pensar; explorar \textbf{nuevas tecnologías}; y mantener un \textbf{aprendizaje continuo}, entre otros intereses más mundanos. Si tuviera que resumir mi hobby en una palabra: \textbf{aprender}.
+
+	Estudiante de \textbf{Ingeniería Telemática} (URJC), pendiente solo de \textbf{prácticas} y de presentar en \textbf{octubre de 2025} el Trabajo de Fin de Grado (TFG). Busco \textbf{prácticas} donde pueda aportar desde el primer día y aprender en entornos reales.
+
+	Autor de \textbf{Code\mbox{-}XR} (plugin \textbf{open source} para \textbf{VS Code}), desarrollado \textbf{end-to-end} y acompañado de \textbf{documentación}, \textbf{demos} y \textbf{promoción técnica} para atraer usuarios y recoger feedback.
 	
 	% --- EDUCACIÓN ---
 	\SectionTitle{Educación}
-	\EduEntry{Universidad Rey Juan Carlos (URJC)}{Grado en Ingeniería Telemática}{Madrid, España}{2020--Presente}
+	\EduEntry{Universidad Rey Juan Carlos (URJC)}{Grado en Ingeniería Telemática}{Madrid, España}{2020--2025}
 	
-	% --- HITOS Y PROYECTOS RELEVANTES ---
-	\SectionTitle{Hitos y proyectos relevantes}
+	% --- EXPERIENCIA Y LOGROS ---
+	\SectionTitle{Experiencia y logros}
 	\ProjEntry
 	{Artículo científico (VISSOFT/ICSME)}
 	{Creador de Code-XR como TFG (2025)}
-	{Desarrollo de \textbf{Code-XR}, un plugin para \textbf{Visual Studio Code} que permite la visualización
-		de métricas de código en tiempo real, con integración en \textbf{realidad virtual y aumentada}
-		(\textit{A-Frame/WebXR}).}
+	{VISSOFT @ ICSME 2025 - aceptado y presentado; DOI: \url{https://zenodo.org/records/16352142}; Web: \url{https://amontesl.github.io/code-xr-docs/}; Marketplace: \url{https://marketplace.visualstudio.com/items?itemName=aMonteSl.code-xr}; Más de 250 descargas.}
 	\ProjEntry
 	{Matrícula de Honor — LSMU}
 	{Desarrollo de apps Android con Kotlin (2025)}
@@ -127,6 +130,12 @@
 	{Desarrollo de apps telemáticas en C++ (2024)}
 	{Asignatura centrada en \textbf{programación orientada a objetos} en \textbf{C++}. Desarrollo de aplicaciones telemáticas
 		aplicando técnicas y tecnologías de comunicación y diseño de software.}
+
+	% Entrada añadida: Empresa Familiar
+	\ProjEntry
+	{Empresa Familiar Adyra Ingeniería - Colaborador Tecnológico}
+	{Automatización de procesos internos}
+	{Automatización de procesos internos mediante desarrollo de \textbf{scripts} y herramientas digitales, optimizando tiempos y reduciendo errores manuales.}
 	
 	% --- ACTIVIDADES Y EVENTOS ---
 	\SectionTitle{Actividades y eventos}
@@ -135,16 +144,33 @@
 	\EventEntry{Charlas y cursos tecnológicos (online/presencial)}{Asistente}{Varias instituciones}{Desde 2023}
 	\EventDesc{Participación regular en charlas y talleres sobre tecnologías emergentes y herramientas existentes (web/XR, backend, IA generativa).}
 	
-	% --- HABILIDADES ---
-	\SectionTitle{Habilidades}
-	\SkillEntry{Lenguajes}{Pascal, C, C++, Ensamblador (RISC\mbox{-}V), Python, Kotlin, JavaScript, TypeScript, HTML, CSS, MATLAB, SQL, PostgreSQL}
-	\SkillEntry{Frameworks, librerías y XR}{Django, Bootstrap, A-Frame (WebXR), ROS~2}
-	\SkillEntry{Herramientas y sistemas}{Git, Linux,VS Code, Android Studio, Wireshark/nmap, OpenSSL/GPG, iptables/UFW}
-	\SkillEntry{Otros}{Nociones de \textit{prompt engineering} con IA generativa}
+	% --- HABILIDADES Y COMPETENCIAS ---
+	\SectionTitle{HABILIDADES Y COMPETENCIAS}
+	% Subapartado: Habilidades (técnicas)
+	\noindent\textbf{Habilidades}
+	\vspace{3pt}
+	\begin{itemize}
+		\item \textbf{Lenguajes}: Pascal, C, C++, Ensamblador (RISC\mbox{-}V), Python, Kotlin, JavaScript, TypeScript, HTML, CSS, Matlab, SQL, PostgreSQL, Go.
+		\item \textbf{Frameworks, librerías y XR}: Django, Bootstrap, A-Frame (WebXR), ROS~2.
+		\item \textbf{Herramientas y sistemas}: Git, Linux, VS Code, Android Studio, Wireshark/nmap, OpenSSL/GPG, iptables/UFW.
+		\item \textbf{Otros}: Nociones de \textit{prompt engineering} con IA generativa.
+	\end{itemize}
+
+	% Subapartado: Competencias
+	\vspace{3pt}
+	\noindent\textbf{Competencias}
+	\begin{itemize}
+		\item \textbf{Personales}: Motivación de logro, detallista, comprometido, creativo, proactivo, disciplinado, curioso, resiliente, adaptable, organizado.
+		\item \textbf{Interpersonales}: Trabajo en equipo, comunicación, empatía, escucha activa.
+	\end{itemize}
 	
 	% --- IDIOMAS ---
 	\SectionTitle{Idiomas}\vspace{0pt}
-	\noindent \textbf{Inglés}: B2 -- TOEIC 2022 \;·\; \textbf{Español}: Nativo
+	\noindent \textbf{Inglés}: B2 -- TOEIC \;·\; \textbf{Español}: Nativo
+	
+	% --- MÁS SOBRE MÍ ---
+	\SectionTitle{Más sobre mí}
+	Me apasiona viajar para conocer otras culturas y formas de pensar, explorar nuevas tecnologías y mantener un \textbf{aprendizaje continuo}, junto con otros intereses más cotidianos que me ayudan a equilibrar la vida personal y profesional.
 	
 	% --- RECOMENDACIONES ---
 	\SectionTitle{Recomendaciones}\vspace{-3pt}
