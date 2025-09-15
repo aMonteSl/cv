@@ -1,0 +1,153 @@
+\documentclass[10pt,a4paper]{article}
+
+% --- Paquetes básicos ---
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}   % Con XeLaTeX puedes omitirlo
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1.55cm]{geometry} % un poco más de área útil
+\usepackage{parskip}
+\setlength{\parskip}{1.5pt}          % ligero pero legible
+\usepackage{microtype}
+\linespread{0.965}                    % pelín menos de interlínea
+\usepackage{hyperref}
+\hypersetup{colorlinks=false}
+\urlstyle{same}
+\usepackage[none]{hyphenat}
+\sloppy % (opcional) da margen para evitar cortes agresivos
+
+
+% --- Estilos del CV ---
+\newcommand{\Name}[1]{%
+	\begin{center}
+		{\bfseries\fontsize{21}{23}\selectfont #1}\par
+	\end{center}
+}
+\newcommand{\Contact}[1]{%
+	\begin{center}
+		\footnotesize #1
+	\end{center}
+}
+
+% Título de sección: ROMANA + MAYÚSCULAS + línea
+\newcommand{\SectionTitle}[1]{%
+	\vspace{5pt}%
+	{\bfseries\MakeUppercase{#1}}\par
+	\rule{\textwidth}{0.5pt}\vspace{3pt}%
+}
+
+% Tablas compactas (educación / eventos / idiomas)
+\newcommand{\TightTwoCol}[4]{%
+	\begingroup\setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{0.95}%
+	\noindent\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+		\textbf{#1} & #3 \\
+		\textit{#2} & \textit{#4} \\
+	\end{tabular*}\par\endgroup
+}
+
+% Educación
+\newcommand{\EduEntry}[4]{%
+	\TightTwoCol{#1}{#2}{#3}{#4}\vspace{3pt}
+}
+
+% Hitos/Proyectos (viñeta + título en negrita)
+\newcommand{\ProjEntry}[3]{%
+	\noindent\textbullet\ \textbf{#1}\par
+	\textit{#2}\par
+	#3\par\vspace{3pt}%
+}
+
+% Eventos (viñeta)
+\newcommand{\EventEntry}[4]{%
+	\begingroup\setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{0.95}%
+	\noindent\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+		\textbullet\ \textbf{#1} & #3 \\
+		\textit{#2} & \textit{#4} \\
+	\end{tabular*}\par\endgroup
+}
+\newcommand{\EventDesc}[1]{%
+	#1\par\vspace{1pt}%
+}
+
+% Habilidades: viñeta + título + lista separada por comas
+\newcommand{\SkillEntry}[2]{%
+	\noindent\textbullet\ \textbf{#1}: #2\par\vspace{0pt}%
+}
+
+% Idiomas (si necesitas filas)
+\newcommand{\LangEntry}[2]{%
+	\begingroup\setlength{\tabcolsep}{0pt}\renewcommand{\arraystretch}{0.95}%
+	\noindent\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+		\textbf{#1} & #2 \\
+	\end{tabular*}\par\endgroup
+}
+
+\begin{document}
+	
+	% --- Nombre ---
+	\Name{ADRIÁN MONTES}
+	
+	% --- Contacto ---
+	\Contact{%
+		Email: \href{mailto:adrian.adyra@gmail.com}{adrian.adyra@gmail.com} \enspace|\enspace
+		Tel: +34 637 682 361 \enspace|\enspace
+		LinkedIn: \href{https://linkedin.com/in/adrianmonteslinares}{linkedin.com/in/adrianmonteslinares} \enspace|\enspace
+		GitHub: \href{https://github.com/aMonteSl}{github.com/aMonteSl} \enspace|\enspace
+		Madrid, ES
+	}
+	
+	% --- RESUMEN ---
+	\SectionTitle{Resumen}
+	
+	Estudiante de \textbf{Ingeniería Telemática} (URJC) con entusiasmo por iniciar mi carrera en \textbf{desarrollo de software} (\textbf{backend} y \textbf{frontend}). Busco \textbf{prácticas} para seguir creciendo técnicamente mientras aporto \textbf{valor} en \textbf{soluciones reales} y me comprometo con los objetivos del \textbf{equipo}.
+	
+	Mi proyecto más significativo es \textbf{Code\mbox{-}XR}, un plugin de \textbf{software libre} para \textbf{Visual Studio Code}. Me permitió consolidar \textbf{habilidades técnicas} y desarrollar \textbf{competencias transversales} como comunicación, difusión y autogestión.
+	
+	Intereses: \textbf{viajar} para conocer otras culturas y formas de pensar; explorar \textbf{nuevas tecnologías}; y mantener un \textbf{aprendizaje continuo}, entre otros intereses más mundanos. Si tuviera que resumir mi hobby en una palabra: \textbf{aprender}.
+	
+	% --- EDUCACIÓN ---
+	\SectionTitle{Educación}
+	\EduEntry{Universidad Rey Juan Carlos (URJC)}{Grado en Ingeniería Telemática}{Madrid, España}{2020--Presente}
+	
+	% --- HITOS Y PROYECTOS RELEVANTES ---
+	\SectionTitle{Hitos y proyectos relevantes}
+	\ProjEntry
+	{Artículo científico (VISSOFT/ICSME)}
+	{Creador de Code-XR como TFG (2025)}
+	{Desarrollo de \textbf{Code-XR}, un plugin para \textbf{Visual Studio Code} que permite la visualización
+		de métricas de código en tiempo real, con integración en \textbf{realidad virtual y aumentada}
+		(\textit{A-Frame/WebXR}).}
+	\ProjEntry
+	{Matrícula de Honor — LSMU}
+	{Desarrollo de apps Android con Kotlin (2025)}
+	{Aplicación de principios de diseño de interfaces, gestión del ciclo de vida de actividades y uso avanzado de
+		componentes del sistema en \textbf{Android Studio}.}
+	\ProjEntry
+	{Matrícula de Honor — AST}
+	{Desarrollo de apps telemáticas en C++ (2024)}
+	{Asignatura centrada en \textbf{programación orientada a objetos} en \textbf{C++}. Desarrollo de aplicaciones telemáticas
+		aplicando técnicas y tecnologías de comunicación y diseño de software.}
+	
+	% --- ACTIVIDADES Y EVENTOS ---
+	\SectionTitle{Actividades y eventos}
+	\EventEntry{Hackatón URJC 2024}{Participante}{Madrid, España}{2024}
+	\EventDesc{Hackatón de 3 días (economía circular). Modelo de \textit{tokens} universitarios: ganar por contribuir (tutorías, apuntes, actividades) y gastar en ayuda/servicios del campus. Rol: ideación, prototipado y \textit{pitch}.}
+	\EventEntry{Charlas y cursos tecnológicos (online/presencial)}{Asistente}{Varias instituciones}{Desde 2023}
+	\EventDesc{Participación regular en charlas y talleres sobre tecnologías emergentes y herramientas existentes (web/XR, backend, IA generativa).}
+	
+	% --- HABILIDADES ---
+	\SectionTitle{Habilidades}
+	\SkillEntry{Lenguajes}{Pascal, C, C++, Ensamblador (RISC\mbox{-}V), Python, Kotlin, JavaScript, TypeScript, HTML, CSS, MATLAB, SQL, PostgreSQL}
+	\SkillEntry{Frameworks, librerías y XR}{Django, Bootstrap, A-Frame (WebXR), ROS~2}
+	\SkillEntry{Herramientas y sistemas}{Git, Linux,VS Code, Android Studio, Wireshark/nmap, OpenSSL/GPG, iptables/UFW}
+	\SkillEntry{Otros}{Nociones de \textit{prompt engineering} con IA generativa}
+	
+	% --- IDIOMAS ---
+	\SectionTitle{Idiomas}\vspace{0pt}
+	\noindent \textbf{Inglés}: B2 -- TOEIC 2022 \;·\; \textbf{Español}: Nativo
+	
+	% --- RECOMENDACIONES ---
+	\SectionTitle{Recomendaciones}\vspace{-3pt}
+	{\footnotesize\noindent Carta de recomendación \textit{disponible a petición} (Prof.\ David Moreno Lumbreras, URJC).}
+	
+\end{document}
